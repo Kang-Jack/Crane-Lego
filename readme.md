@@ -1,1 +1,3 @@
-#Crane-Lego
+# Crane-Lego
+
+An arduino project for kids
