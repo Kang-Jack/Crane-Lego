@@ -14,9 +14,9 @@
 
 //#define ledPin 5
 
-int redPin = A0;  // Nano 3 ,R 红色LED 控制引脚 连接到Arduino的 11脚
-int bluePin = A1;  //Nano5, B蓝色LED 控制引脚 连接到Arduino的 11脚 
-int greenPin = A2;  //Nano6, G绿色LED 控制引脚 连接到Arduino的 9脚
+int redPin = A0;  // Nano 3 
+int bluePin = A1;  //Nano5
+int greenPin = A2;  //Nano6
 
 
 // Initialize with pin sequence IN1-IN3-IN2-IN4 for using the AccelStepper with 28BYJ-48
@@ -33,9 +33,9 @@ void setup() {
   pinMode(upPin, INPUT); 
   pinMode(downPin, INPUT);
   //pinMode(ledPin, OUTPUT);  
-  pinMode(redPin, OUTPUT); //设置redPin对应的管脚11为输出
-  pinMode(greenPin, OUTPUT); //设置greenPin,对应的管脚9为输出
-  pinMode(bluePin, OUTPUT); //设置bluePin对应的管脚10为输出
+  pinMode(redPin, OUTPUT); 
+  pinMode(greenPin, OUTPUT); 
+  pinMode(bluePin, OUTPUT); 
   
   stepper1.setMaxSpeed(2000.0);
   stepper1.move(1);  // I found this necessary
@@ -83,17 +83,17 @@ void color (unsigned char red, unsigned char green, unsigned char blue)
 }  
 void lightUp(){
       // Basic colors:  
-      color(0,255, 0); //绿色亮
+      color(0,255, 0);
       delay(100); 
-      color(0, 0, 255); // 蓝色灯亮  
+      color(0, 0, 255);
       delay(100); 
-      color(255,255,0); // 黄色  
+      color(255,255,0);
       delay(100); 
-      color(255,255,255); // 白色  
+      color(255,255,255);
       delay(100); 
-      color(128,0,255); // 紫色  
+      color(128,0,255);
       delay(100);   
-      color(255, 0, 0); // 红色亮 
+      color(255, 0, 0);
 }
 void lightDown(){
      // Basic colors:  
