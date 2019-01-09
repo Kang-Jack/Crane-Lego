@@ -33,9 +33,9 @@ void setup() {
   pinMode(upPin, INPUT); 
   pinMode(downPin, INPUT);
   //pinMode(ledPin, OUTPUT);  
-  pinMode(redPin, OUTPUT); //设置redPin对应的管脚11为输出
-  pinMode(greenPin, OUTPUT); //设置greenPin,对应的管脚9为输出
-  pinMode(bluePin, OUTPUT); //设置bluePin对应的管脚10为输出
+  pinMode(redPin, OUTPUT); //11
+  pinMode(greenPin, OUTPUT); //9
+  pinMode(bluePin, OUTPUT); //10
   
   stepper1.setMaxSpeed(1600.0);
   stepper1.setAcceleration(100.0);
@@ -116,17 +116,17 @@ void color (unsigned char red, unsigned char green, unsigned char blue)
 }  
 void lightUp(){
       // Basic colors:  
-      color(0,255, 0); //绿色亮
+      color(0,255, 0); //green
       delay(50); 
-      color(0, 0, 255); // 蓝色灯亮  
+      color(0, 0, 255); // blue
       delay(50); 
-      color(255,255,0); // 黄色  
+      color(255,255,0); //yellow
       delay(50); 
-      color(255,255,255); // 白色  
+      color(255,255,255); // white
       delay(50); 
-      color(128,0,255); // 紫色  
+      color(128,0,255); // purple
       delay(50);   
-      color(255, 0, 0); // 红色亮 
+      color(255, 0, 0); // red
 }
 void lightDown(){
      // Basic colors:  
