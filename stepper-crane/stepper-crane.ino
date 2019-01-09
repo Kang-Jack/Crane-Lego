@@ -14,9 +14,9 @@
 
 //#define ledPin 5
 
-int redPin = A0;  // Nano 3 ,R 红色LED 控制引脚 连接到Arduino的 11脚
-int bluePin = A1;  //Nano5, B蓝色LED 控制引脚 连接到Arduino的 11脚 
-int greenPin = A2;  //Nano6, G绿色LED 控制引脚 连接到Arduino的 9脚
+int redPin = A0;  // Nano 3 
+int bluePin = A1;  //Nano5
+int greenPin = A2;  //Nano6
 
 
 // Initialize with pin sequence IN1-IN3-IN2-IN4 for using the AccelStepper with 28BYJ-48
