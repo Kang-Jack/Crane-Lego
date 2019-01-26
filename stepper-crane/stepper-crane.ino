@@ -8,6 +8,10 @@
 #define motorPin3  10     // IN3 on the ULN2003 driver 1
 #define motorPin4  11     // IN4 on the ULN2003 driver 1
 
+
+
+
+
 #define upPin 6
 #define downPin 7
 
@@ -30,9 +34,15 @@ int downVal = LOW;
 bool isFW =false;
 void setup() {
   Serial.begin(9600);
+
+  pinMode(motorPin1,OUTPUT);
+  pinMode(motorPin2,OUTPUT);
+  pinMode(motorPin3,OUTPUT);
+  pinMode(motorPin4,OUTPUT);
+
   pinMode(upPin, INPUT); 
   pinMode(downPin, INPUT);
-  //pinMode(ledPin, OUTPUT);  
+
   pinMode(redPin, OUTPUT); //11
   pinMode(greenPin, OUTPUT); //9
   pinMode(bluePin, OUTPUT); //10
@@ -44,12 +54,22 @@ void setup() {
 
 }//--(end setup )---
 
+void close_motor()
+{
+  digitalWrite(motorPin2,LOW);
+  digitalWrite(motorPin3,LOW);
+  digitalWrite(motorPin1,LOW);
+  digitalWrite(motorPin4,LOW);
+}
 void loop() {
+  //give a time gap 
   if (steps1%9 == 0){
     upVal = digitalRead(upPin);
     downVal= digitalRead(downPin);
   }
+  //two buttons release / push together
   if (upVal == downVal){
+
     steps1 = stepper1.distanceToGo();
     //Serial.println(steps1);
     if(steps1 != 0)
@@ -58,12 +78,19 @@ void loop() {
       stepper1.setSpeed(stepperSpeed);
       stepper1.runSpeedToPosition();
     }
+   else
+    {
+      close_motor();
+      //stepper1.stop();
+    }
+    
     lightDown(); 
     isFW =false;
     delay (50);
     return;
   }
-  if (upVal == HIGH ){   
+  //button up
+  if (upVal == HIGH ){  
       if (isFW)
       {
          if  (steps1==0)
@@ -78,6 +105,7 @@ void loop() {
       }
       isFW=true;
   }
+  //button down
   if (downVal == HIGH) {  
       if (!isFW)
       {
